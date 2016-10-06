@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <title>Mock Draft Tool</title>
     <link rel="stylesheet"
-    href="Bootstrap/css/bootstrap.min.css">
+    href="css/bootstrap.min.css">
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script
+        src="http://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Still need to add Angular.min.js files -->
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Logo Here</a>
+          <a class="navbar-brand" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:150%; width:125%;"></a>
         </div>
         <ul class="nav navbar-nav">
           <li role="presentation" class="active"><a href="index.php">Home</a></li>
@@ -22,7 +26,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li role="presentation">
-            <a href="#modal1" role="button" class="btn btn-primary" data-toggle="modal"
+            <a href="#modal1" role="button" class="btn" data-toggle="modal"
             ><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
           <li role="presentation">
@@ -48,9 +52,38 @@
           </div>
           <div class="modal-body modal-font">
           <!-- form for log in goes here -->
+          <form class="form-horizontal" action="rpc/rpcClient.php" method='post'>
+            <div class="form-group">
+              <label for="username" class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="username" name="user" placeholder="Username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" name="pw" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Remember Me
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign In</button>
+              </div>
+            </div>
+          </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Log In</button>
+            <h5>If you do not have an account...</br></h5>
+            <button type="button" class="btn btn-primary">Sign Up</button>
           </div>
         </div>
       </div>
