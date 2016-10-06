@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Mock Draft Tool</title>
     <link rel="stylesheet"
-    href="Boostrap/css/bootstrap.min.css">
+    href="Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
     <script src="Bootstrap/js/bootstrap.min.js"></script>
@@ -22,8 +22,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li role="presentation">
-            <button type="button" class="btn btn-primary" data-toggle="modal"
-             data-target="#modal1"><span><i class="fa fa-sign-in"></i></span>Log In</button>
+            <a href="#modal1" role="button" class="btn btn-primary" data-toggle="modal"
+            ><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
           <li role="presentation">
             <a href="index.php?controller=DraftOptions">Mock Draft</a>
@@ -50,7 +50,7 @@
           <!-- form for log in goes here -->
           </div>
           <div class="modal-footer">
-            <button type="button"
+            <button type="button" class="btn btn-primary">Log In</button>
           </div>
         </div>
       </div>
@@ -59,12 +59,12 @@
   <?php
     function my_autoloader($class) {
       include 'classes/' . $class . 'class.php';
-
+    }
     spl_autoload_register('my_autoloader');
 
     //db connection here through rabbitMQ
     
-    //$app = new app;
+    $app = new app;
   ?>
   </body>
 </html>
