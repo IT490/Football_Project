@@ -3,13 +3,22 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('../classes/dbConn.class.php');
 
 function doLogin($username,$password)
 {
-    // lookup username in databas
-    // check password
-  echo "You have logged in<br>";
-  echo "User: " . $username . " and pw: " . $password;  
+  // lookup username in database
+  // check password
+  // if user is in DB then return a Yes in response else return No
+  $db = dbConn::getConnection();
+  $sql = $db->prepare( 'SELECT * FROM Login WHERE Username = :user AND Password = :pw' );
+  $sql->execute( array( ':user' => $username, ':pw' => $password ) );
+
+  if( $sql->fetch() ){
+    //Login successful
+    return array( 'returnCode' => '0', 'message' => 'Yes' );
+  
+  } else { return array( "returnCode" => '0', 'message' => "No" ); }
 }
 
 function requestProcessor($request)
