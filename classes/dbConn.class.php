@@ -1,8 +1,5 @@
 <?php
 
-  //Not sure if we will end up using this particular
-  //dbConn class but it will serve as an example for now.
-
   class dbConn {
 
     protected static $db;
@@ -12,8 +9,8 @@
       try {
 
         //assign PDO object to db Variable
-
-        self::$db = new PDO('mysql:host=sql2.njit.edu;dbname=yk92;', 'yk92', 'kc8PZ8Mz');
+        //this is using my NJIT SQL DB -> need to change to IT490 DB
+        self::$db = new PDO('mysql:host=localhost;dbname=it490;', 'nflGuy', 'nflGuy');
         self::$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
       }
       catch (PDOException $e) {
