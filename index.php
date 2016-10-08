@@ -12,6 +12,17 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(window).on('load', function() {
+        var succ = "<?php echo $_SESSION['success']; ?>";  
+        if( succ == "Yes" ){
+          $('#alert').replaceWith("<div class='alert alert-success' role='alert'><h5><strong>Success! </strong>You are logged in.</h5></div>");
+        }
+        if( succ == "No" ) {
+          $('#alert').replaceWith("<div class='alert alert-danger' role='alert'><h5><strong>No account! </strong>Please <a class='alert-link' href='index.php?controller=signupController'>Sign up</a></h5></div>");
+        }
+      });
+    </script>
     <!-- Still need to add Angular.min.js files -->
   </head>
   <body>
@@ -107,16 +118,5 @@
         </p>
       </div>
     </nav>
-    </body>
-      <script>
-      $(window).on('load', function() {
-        var succ = "<?php echo $_SESSION['success']; ?>";  
-      if( succ == "Yes" ){
-        $('#alert').replaceWith("<div class='alert alert-success' role='alert'><h5><strong>Success! </strong>You are logged in.</h5></div>");
-      }
-      if( succ == "No" ) {
-        $('#alert').replaceWith("<div class='alert alert-danger' role='alert'><h5><strong>No account! </strong>Please <a class='alert-link' href='index.php?controller=signupController'>Sign up</a></h5></div>");
-      }
-    });
-  </script>
+  </body>
 </html>
