@@ -16,7 +16,7 @@
       $(window).on('load', function() {
         var succ = "<?php echo $_SESSION['success']; ?>";  
         if( succ == "Yes" ){
-          $('#alert').replaceWith("<div class='alert alert-success' role='alert'><h5><strong>Success! </strong>You are logged in.</h5></div>");
+          $('#alert').replaceWith("<div class='alert alert-success' role='alert'><p><strong>Success! </strong>You are logged in.</p></div>");
         }
         if( succ == "No" ) {
           $('#alert').replaceWith("<div class='alert alert-danger' role='alert'><h5><strong>No account! </strong>Please <a class='alert-link' href='index.php?controller=signupController'>Sign up</a></h5></div>");
@@ -102,13 +102,13 @@
     </div>
     <?php 
       function my_autoloader($class) {
-        include 'classes/' . $class . 'class.php';
+        include 'classes/' . $class . '.class.php';
       }
       spl_autoload_register('my_autoloader');
 
       //db connection here through rabbitMQ
     
-      //$app = new app;
+      $app = new app;
     ?>
     
     <nav class="navbar navbar-default navbar-fixed-bottom">
