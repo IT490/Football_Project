@@ -13,27 +13,31 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Still need to add Angular.min.js files -->
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:150%; width:125%;"></a>
+          <a class="navbar-brand pull-left" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:125%; width:125%;"></a>
+          <ul class="nav navbar-nav navbar-left">
+            <li role="presentation">
+              <a href="index.php">Da Drafterizer</a>
+            </li>
+          </ul>
         </div>
-        <ul class="nav navbar-nav">
-          <li role="presentation" class="active"><a href="index.php">Home</a></li>
-      <!--    <li><a href="index.php?controller=LoginController">Mock Draft</a></li> -->
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li role="presentation">
-            <a href="#modal1" role="button" class="btn" data-toggle="modal"
-            ><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
+            <a href="index.php?controller=signupController"><span><i class="fa fa-optin-monster"></i></span>&nbspSign Up</a>
           </li>
           <li role="presentation">
-            <a href="index.php?controller=DraftOptions">Mock Draft</a>
+            <a href="index.php?controller=loginController"><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
           <li role="presentation">
-            <a href="index.php?controller=PlayerList">Players</a>
+            <a href="index.php?controller=DraftOptions"><span><i class="fa fa-cogs"></i></span>&nbspMock Draft</a>
+          </li>
+          <li role="presentation">
+            <a href="index.php?controller=PlayerList"><i class="fa fa-users"></i></span>&nbspPlayers List</a>
           </li>
           <li role="presentation">
             <a href="index.php?controller=StartSit">Start/Sit</a>
@@ -41,8 +45,8 @@
         </ul>
       </div>
     </nav>
-    
-    <!-- Modal for Login starts here -->
+    <div class="main-div">
+    <!-- Modal for Login starts here 
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal-1-label">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -51,8 +55,7 @@
             <h4 class="modal-title" id="modal-1-label"><strong>Please Log In</strong></h4>
           </div>
           <div class="modal-body modal-font">
-          <!-- form for log in goes here -->
-          <form class="form-horizontal" action="rpc/rpcClient.php" method='post'>
+          <form class="form-horizontal" action="rpc/testRpcClient.php" method='post'>
             <div class="form-group">
               <label for="username" class="col-sm-2 control-label">Username</label>
               <div class="col-sm-10">
@@ -88,16 +91,28 @@
         </div>
       </div>
     </div>
-        
-  <?php
-    function my_autoloader($class) {
-      include 'classes/' . $class . 'class.php';
-    }
-    spl_autoload_register('my_autoloader');
+    -->
+    <?php 
+      function my_autoloader($class) {
+        if(strpos($class, 'Controller') !== false){
+          include 'classes/Controllers/' . $class . '.class.php';
+        }
+        else if(strpos($class, 'View') !== false) {
+          include 'classes/Views/' . $class . '.class.php';
+        }
+        else { include 'classes/' . $class . '.class.php'; }
+      }
+      spl_autoload_register('my_autoloader');
 
-    //db connection here through rabbitMQ
-    
-    $app = new app;
-  ?>
+      $app = new app;
+    ?>
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-right">
+          A Jb-Y Production &copy <?php echo date("Y"); ?> 
+        </p>
+      </div>
+    </div>
   </body>
 </html>
