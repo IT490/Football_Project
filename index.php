@@ -13,15 +13,23 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Still need to add Angular.min.js files -->
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:125%; width:125%;"></a>
-        </ul>
+          <a class="navbar-brand pull-left" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:125%; width:125%;"></a>
+          <ul class="nav navbar-nav navbar-left">
+            <li role="presentation">
+              <a href="index.php">Da Drafterizer</a>
+            </li>
+          </ul>
         </div>
         <ul class="nav navbar-nav navbar-right">
+          <li role="presentation">
+            <a href="index.php?controller=signupController"><span><i class="fa fa-optin-monster"></i></span>&nbspSign Up</a>
+          </li>
           <li role="presentation">
             <a href="index.php?controller=loginController"><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
@@ -37,6 +45,7 @@
         </ul>
       </div>
     </nav>
+    <div class="main-div">
     <!-- Modal for Login starts here 
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal-1-label">
       <div class="modal-dialog" role="document">
@@ -97,13 +106,13 @@
 
       $app = new app;
     ?>
-    
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container">
         <p class="navbar-text pull-right">
           A Jb-Y Production &copy <?php echo date("Y"); ?> 
         </p>
       </div>
-    </nav>
+    </div>
   </body>
 </html>

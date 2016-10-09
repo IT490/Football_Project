@@ -1,11 +1,11 @@
 <?php
   
-  class loginController extends controller {
+  class loginController extends Controller {
 
     public function get() {
       
-      $form = new loginForm;
-      $this->html .= $form->getHTML();  
+      $view = new loginView;
+      $this->html .= $view->getHTML();  
     }
 
     public function post() {
