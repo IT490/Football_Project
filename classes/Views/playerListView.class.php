@@ -7,10 +7,12 @@ class PlayerListView extends View
  	public function getHTML()
 	{
 		$this->html .=
-		'
+		"
 		<html>
 		<div>test</div>
 		</html>
-		'
+		";
+
+		return $this->html;
 	}
 }

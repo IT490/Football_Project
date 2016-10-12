@@ -96,6 +96,7 @@
       function my_autoloader($class) {
         if(strpos($class, 'Controller') !== false){
           include 'classes/Controllers/' . $class . '.class.php';
+					var_dump($class);
         }
         else if(strpos($class, 'View') !== false) {
           include 'classes/Views/' . $class . '.class.php';
