@@ -1,6 +1,6 @@
 <?php
 
-class PlayerListController extends Controller
+class playerListController extends Controller
 {
 
 	public function get()
@@ -13,7 +13,7 @@ class PlayerListController extends Controller
 		//	var_dump($collection);
 		//}
 
-		$view = new PlayerListView;
+		$view = new playerListView;
 		var_dump($view);
 		$this->html .= $view->getHTML();
 	}

@@ -1,6 +1,6 @@
 <?php
 
-class PlayerListView extends View
+class playerListView extends View
 {
 	//store the array in session
 
