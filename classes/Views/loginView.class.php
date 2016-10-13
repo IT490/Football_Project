@@ -3,11 +3,11 @@
   class loginView extends View {
 
     public function getHTML() {
-      //create the view
-      $this->html .= "<div class='page-header'>
-                        <h2 class>&nbsp<span><i class='fa fa-lg fa-archive'></i></span>&nbspSign in</h2>
-                      </div>";
-      $this->html .= "<form class='form-horizontal' method='post' action='index.php?controller=loginController'>
+      //create the Login view
+      $this->html .= "<div class='page-header' style='margin-top: 60px;'>
+                        <h2 class='text-left'>&nbsp<span><i class='fa fa-lg fa-archive'></i></span>&nbspSign in</h2>
+                      </div>
+                      <form class='form-horizontal' method='post' action='index.php?controller=loginController'>
                         <div class='form-group'>
                           <label for='username' class='col-sm-2 control-label'>Username: </label>
                           <div class='col-sm-4'>
