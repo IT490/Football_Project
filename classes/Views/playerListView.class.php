@@ -1,11 +1,11 @@
 <?php
 
+require_once __DIR__ .  '/../../vendor/autoload.php';
+
 class playerListView extends View
 {
 	public function getHTML()
 	{
-		//session_start();
-
 		$client = new MongoDB\Client;
 		$nfl = $client->nfl;
 
