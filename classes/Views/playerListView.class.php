@@ -2,16 +2,20 @@
 
 class playerListView extends View
 {
-	//store the array in session
-
- 	public function getHTML()
+	public function getHTML()
 	{
-		$this->html .=
-		"
-		<html>
-		<div>test</div>
-		</html>
-		";
+		//session_start();
+
+		$client = new MongoDB\Client;
+		$nfl = $client->nfl;
+
+		$collection = $client->nfl->Players;
+		
+		foreach ($collection->find() as $document)
+		{
+			$this->html .= '<br><br>'. $document["FirstName"] . ' ' . $document["LastName"] .' <br>';
+
+		}
 
 		return $this->html;
 	}
