@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand pull-left" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:125%; width:125%;"></a>
@@ -34,10 +34,10 @@
             <a href="index.php?controller=loginController"><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
           <li role="presentation">
-            <a href="index.php?controller=DraftOptions"><span><i class="fa fa-cogs"></i></span>&nbspMock Draft</a>
+            <a href="index.php?controller=draftOptionsController"><span><i class="fa fa-cogs"></i></span>&nbspMock Draft</a>
           </li>
           <li role="presentation">
-            <a href="index.php?controller=PlayerList"><i class="fa fa-users"></i></span>&nbspPlayers List</a>
+            <a href="index.php?controller=playerListController"><i class="fa fa-users"></i></span>&nbspPlayers List</a>
           </li>
           <li role="presentation">
             <a href="index.php?controller=StartSit">Start/Sit</a>
