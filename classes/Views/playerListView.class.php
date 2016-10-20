@@ -31,7 +31,7 @@ class playerListView extends View
 	
 		foreach ($collection->find() as $document)
 		{
-			$this->html .= '<tr><td>'. 
+			$this->html .= '<tr><td>'. '<a href="index.php?controller=playerProfileController&player='.$document["Name"].'">'.
 					$document["FirstName"]. ' ' . $document["LastName"].
 					'</td><td>'. 
 					$document["CurrentTeam"].
@@ -41,7 +41,7 @@ class playerListView extends View
 					$document["Position"].
 					'</td><td>'.
 					$document["CurrentStatus"]. 
-					'</td></tr>';
+					'</td></a></tr>';
 		}
 
 		$this->html .= '</tbody></table></div>';
