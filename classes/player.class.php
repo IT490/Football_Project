@@ -28,24 +28,38 @@ class player
 		if ($result_count == 1)
 		{
 			// build player profile
-      $this->html .= '<div class="main-div panel">
+      $this->html .= '<div class="panel panel-default" style="margin-top: 60px; background-color: #E0E0E0; width: 1150px;">
 					              <div class="row">
-						              <div class="col-xs-8">
+						              <div class="col-sm-2">
 							              <div class="main-content">
-								              <img src=' . "\"" . $array[0]["PhotoUrl"] . "\"" . '/>
-							              </div>
-						              <div class="col-xs-4">
-							              <div class="main-content">'.
-								              $array[0]["BirthDateString"].'<br>'.
-								              $array[0]["Position"] .'<br>'.
-								              $array[0]["CurrentTeam"].'<br>'.
-								              $array[0]["College"].'<br>
+								              <img src=' . "\"" . $array[0]["PhotoUrl"] . "\"" . ' width="150px" height="175px" style="margin-bottom: 10px; margin-left: 10px;"/>
 							              </div>
 						              </div>
-                        </div>
-                      </div>';
+						              <div class="col-sm-10">
+							              <h3><strong>'.$array[0]['Name'].'</strong></h3>
+							                <div class="row">
+								                <div class="col-sm-12">'.
+									                '<p><i><strong>Age:</strong></i> '. $array[0]['Age'].'<br>'.
+									                   '<i><strong>Birthdate: </strong></i> '. $array[0]['BirthDateString'].'<br>'.
+									                   '<i><strong>Position: </strong></i>  '. $array[0]['Position'].'<br>'.
+									                   '<i><strong>Team: </strong></i>' . $array[0]['CurrentTeam'].'<br>'.
+									                   '<i><strong>College: </strong></i>'. $array[0]['College'].'<br>'.
+									                   '<i><strong>Experience: </strong></i>' .$array[0]['Experience'].' years <br>
+                                   </p>
+								                 </div>	
+							                </div>
+						               </div>
+					              </div>';
 
-		}
+/*$ch = curl_init(); //initialize curl channel
+ *$url = "WHATEVER THE URL IS FOR API" . Name or whatever //create url string
+ *curl_setopt($ch, CURLOPT_URL, $url); //set the url
+ *curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //set the return options
+ *$output = curl_exec($ch); //execute the curl request
+ *curl_close($ch); //close the connection channel
+ *$response = json_decode($output) //decode the json object it returns, this is not regular json if you vardump you will see that curl returns an object (StdClass Object) 
+ */
+    }
 
 		return $this->html;
 	}
