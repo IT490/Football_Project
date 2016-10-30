@@ -6,6 +6,8 @@
     <link rel="stylesheet"
     href="css/bootstrap.min.css">
     <link rel="stylesheet"
+    href="css/dc.css">
+    <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
     <script
         src="http://code.jquery.com/jquery-3.1.1.min.js"
@@ -14,15 +16,18 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Still need to add Angular.min.js files -->
     <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/1.7.5/dc.js"></script>
+    <script type="text/javascript" src="https://rawgithub.com/NickQiZhu/dc.js/master/web/js/crossfilter.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand pull-left" href="index.php"><img src="/img/footballIcon.jpg" alt="Logo" style="height:125%; width:125%;"></a>
           <ul class="nav navbar-nav navbar-left">
             <li role="presentation">
-              <a href="index.php">Da Drafterizer</a>
+              <a href="index.php">NFL Arrests LoL...</a>
             </li>
           </ul>
         </div>
@@ -34,13 +39,10 @@
             <a href="index.php?controller=loginController"><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
           </li>
           <li role="presentation">
-            <a href="index.php?controller=draftOptionsController"><span><i class="fa fa-cogs"></i></span>&nbspMock Draft</a>
+            <a href="index.php?controller=arrestController"><span><i class="fa fa-cogs"></i></span>&nbspNFL Arrests</a>
           </li>
           <li role="presentation">
             <a href="index.php?controller=playerListController"><i class="fa fa-users"></i></span>&nbspPlayers List</a>
-          </li>
-          <li role="presentation">
-            <a href="index.php?controller=StartSit">Start/Sit</a>
           </li>
         </ul>
       </div>

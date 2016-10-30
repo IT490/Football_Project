@@ -11,6 +11,7 @@ class playerListView extends View
 
 		$collection = $client->nfl->Players;
 	
+		$this->html .= '<style type="text/css"> .table-row{cursor:pointer;}</style>';
 		$this->html .= '<div class="page-header" style="margin-top: 60px;">
 				<h2 class>&nbsp<span><i class="fa fa-lg fa-archive"></i></span>&nbspPlayer List</h2>
 				</div>';
@@ -31,7 +32,7 @@ class playerListView extends View
 	
 		foreach ($collection->find() as $document)
 		{
-			$this->html .= '<tr><td>'. '<a href="index.php?controller=playerProfileController&player='.$document["Name"].'">'.
+		                        $this->html .= '<tr class="table-row" data-href="index.php?controller=playerProfileController&player='.$document["Name"].'"><td>'.
 					$document["FirstName"]. ' ' . $document["LastName"].
 					'</td><td>'. 
 					$document["CurrentTeam"].
@@ -45,6 +46,13 @@ class playerListView extends View
 		}
 
 		$this->html .= '</tbody></table></div>';
+		$this->html .= '<script type="text/javascript">
+				$(document).ready(function($){
+					$(".table-row").click(function(){
+						window.document.location = $(this).data("href");
+					});
+				});
+				</script>';
 				
 
 		return $this->html;

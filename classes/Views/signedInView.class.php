@@ -15,9 +15,9 @@
                                                                                                       
       $news_array = json_decode($output, true); 
 
-      $this->html = "<div class='page-header clearfix'>
+      $this->html = "<div class='page-header clearfix' style='width: 1150px;'>
                        <h3 class='text-left'> Welcome " . $_SESSION['user']  . "</h3>
-                       <a href='index.php?controller=userAcctController&user=" . $_SESSION['user'] . "role='button' class='btn btn-info'>
+                       <a href='index.php?controller=userAcctController&user=" . $_SESSION['user'] . "role='button' class='btn btn-info pull-right'>
                         <span><i class='fa fa-pencil-square-o'></i></span>&nbspEdit Account
                        </a>
                      </div>
@@ -25,7 +25,7 @@
                        <div class='panel-header'>
                          <h3>All of the latest NFL news in one spot</h3>
                        </div>
-                       <ul class='list-group'>";
+                       <ul class='list-group' style='width: 1150px;'>";
       foreach($news_array as $article) {
         $this->html .= '<li class="list-group-item">
                           <h4>' . $article["title"] . '</h4></br>' .
