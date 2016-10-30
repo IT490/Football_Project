@@ -5,17 +5,36 @@
     public function getHTML() {
       //create the view
       session_start();
+      
+      $ch = curl_init();
+      $url = "https://api.newsriver.io/v2/search?query=text%3ANFL";                           
+      curl_setopt($ch, CURLOPT_URL, $url);                                                    
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);                                            
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Authorization: sBBqsGXiYgF0Db5OV5tAw_vgAEVEGVbvC62kfcJrKfGPPdViWsKnXl-knmPH43ZM' ) );
+      $output = curl_exec($ch);                                                               
+                                                                                                      
+      $news_array = json_decode($output, true); 
+
       $this->html = "<div class='page-header clearfix'>
                        <h3 class='text-left'> Welcome " . $_SESSION['user']  . "</h3>
-                       <a href='index.php?controller=userAcctController' role='button' class='btn btn-info'>
+                       <a href='index.php?controller=userAcctController&user=" . $_SESSION['user'] . "role='button' class='btn btn-info'>
                         <span><i class='fa fa-pencil-square-o'></i></span>&nbspEdit Account
                        </a>
                      </div>
-                     <div class='jumbotron'>
-                       <h3> This should be a newsfeed or past drafts maybe</h3>
-                       <div class='embed-responsive embed-responsive-16b9'>
-                         <iframe class='embed-responsive-item' src='http://www.youtube.com/nfl'></iframe>
+                     <div class='panel-default'>
+                       <div class='panel-header'>
+                         <h3>All of the latest NFL news in one spot</h3>
                        </div>
+                       <ul class='list-group'>";
+      foreach($news_array as $article) {
+        $this->html .= '<li class="list-group-item">
+                          <h4>' . $article["title"] . '</h4></br>' .
+                          'Published on: ' . $article["publishDate"] . '</br>' .
+                          $article["text"] .
+                          '</li>';
+      }
+
+      $this->html .= "</ul>
                      </div>
                      <h4>Below here will be the tools to use</h4>
                      <div class='row'>
