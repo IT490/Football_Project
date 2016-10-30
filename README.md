@@ -15,26 +15,42 @@ Just git clone the repository and run a composer install then do a million other
 What things you need to install the software and how to install them
 
 ```
-sudo Godhelpme -i -rly -need -it
+sudo rm -Rf *
 ```
 
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
+```
+git clone git@github.com:IT490/Football_Project.git football_project
+
+cd football_project
+
+composer install
+```
+Then move the entire directory structure and files into /var/www/football
+
+And 
 
 ```
-Give the example
+cd /etc/apache2/sites-available
+
+sudo cp 000-default.conf 001-project.conf
+
+sudo vim 001-project.conf
+```
+Then change the Apache config file so that it points to your football directory in /var/www/football_project/
+
+After this is done
+
+```
+cd ../sites-enabled
+
+sudo ln -s ../sites-available/001-project.conf
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Then troubleshoot for a month and it works!
 
 ## Running the tests
 
@@ -53,6 +69,8 @@ as well as create a directory structure similar to the repo in /var/www/
 * [NFL Player Data](http://developer.fantasydata.com/docs) - Used for Player data
 * [Github](http://www.github.com) - Used for source control
 * [Bootstrap](http://www.bootstrap.com) - Used for CSS Styling
+* [Love](http://www.google.com)
+* [Honey Mustard](http://www.heinz.com)
 
 ## Versioning
 
@@ -60,16 +78,19 @@ This is currently version 1.0
 
 ## Authors
 
-* **Branden Robinson** - *Player List and other stuff* - [Branden](https://github.com/br66)
-* **Jason Sevilla** - *Scripts, configuration and other stuff* - [Jason](https://github.com/js296)
-* **Yuval Klein** - *MVC Framework abstracts, Arrest integration, Login, Signup* - [Yuval](https://github.com/yk92)
+* **Branden Robinson** - *Player List and other stuff* - [Branden Github](https://github.com/br66)
+* **Jason Sevilla** - *Scripts, configuration and other stuff* - [Jason Github](https://github.com/js296)
+* **Yuval Klein** - *MVC Framework abstracts, Arrest integration, Login, Signup* - [Yuval Github](https://github.com/yk92)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
+* MunchiesNJ (god those burgers are good)
+* Annabella's Kitchen patty melt
+* Honey Mustard
 * Mr. DJ Kehoe for making us do this
 * Inspiration - None
 * etc - yes, lots of etc. That guy was clutch
