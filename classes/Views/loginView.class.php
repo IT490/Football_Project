@@ -10,13 +10,15 @@
                       <form class='form-horizontal' method='post' action='index.php?controller=loginController'>
                         <div class='form-group'>
                           <label for='username' class='col-sm-2 control-label'>Username: </label>
-                          <div class='col-sm-4'>
+                          <div class='col-sm-4 input-group'>
+                            <span class='input-group-addon'><i class='fa fa-hand-spock-o'></i></span>
                             <input type='email' class='form-control' id='user' name='user' placeholder='Enter your username'>
                           </div>
                         </div>
                         <div class='form-group'>
                           <label for='password' class='col-sm-2 control-label'>Password: </label>
-                          <div class='col-sm-4'>
+                          <div class='col-sm-4 input-group'>
+                            <span class='input-group-addon'><i class='fa fa-key'></i></span>
                             <input type='password' class='form-control' id='pw' name='pw' placeholder='Enter password'>
                           </div>
                         </div>

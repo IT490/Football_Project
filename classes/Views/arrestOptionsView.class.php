@@ -1,6 +1,6 @@
 <?php
 
-  class draftOptionsView extends View {
+  class arrestOptionsView extends View {
 
     public function getHTML() {
       //create the draftOptions view

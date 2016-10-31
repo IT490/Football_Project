@@ -23,52 +23,73 @@ class player
 
 		$documents = $collection->find( [ 'Name' =>  $this->name  ]);
 		$array = $documents->toArray();
-		$result_count = count($array);
+    $result_count = count($array);
+
+    $ch = curl_init();
+    $url = "http://www.nflarrest.com/api/v1/player/arrests/" . $this->name;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $output = curl_exec($ch);
+    curl_close();
+
+    $arrest_data = json_decode($output, true);
 
 		if ($result_count == 1)
 		{
 			// build player profile
-                	$this->html .= '<div class="container">
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="main-content">
-								<img src=' . "\"" . $array[0]["PhotoUrl"] . "\"" . '/>
-							</div>
-						</div>
-						<div class="col-sm-10">
-							<h3>'.$array[0]['Name'].'</h3>
-							<div class="row">
-								<div class="col-sm-12">'.
-									$array[0]['Age'].'<br>'.
-									$array[0]['BirthDateString'].'<br>'.
-									$array[0]['Position'].'<br>'.
-									$array[0]['CurrentTeam'].'<br>'.
-									$array[0]['College'].'<br>'.
-									$array[0]['Experience'].'<br>
-								</div>	
-							</div>
-						</div>
-					</div>';
+      $this->html .= '<div class="panel panel-default" style="margin-top: 60px; background-color: #E0E0E0; width: 1150px;">
+					              <div class="row">
+						              <div class="col-sm-2">
+							              <div class="main-content">
+								              <img src=' . "\"" . $array[0]["PhotoUrl"] . "\"" . ' width="150px" height="175px" style="margin-bottom: 10px; margin-left: 10px;"/>
+							              </div>
+						              </div>
+						              <div class="col-sm-10">
+							              <h3><strong>'.$array[0]['Name'].'</strong></h3>
+							                <div class="row">
+								                <div class="col-sm-12">'.
+									                '<p><i><strong>Age:</strong></i> '. $array[0]['Age'].'<br>'.
+									                   '<i><strong>Birthdate: </strong></i> '. $array[0]['BirthDateString'].'<br>'.
+									                   '<i><strong>Position: </strong></i>  '. $array[0]['Position'].'<br>'.
+									                   '<i><strong>Team: </strong></i>' . $array[0]['CurrentTeam'].'<br>'.
+									                   '<i><strong>College: </strong></i>'. $array[0]['College'].'<br>'.
+									                   '<i><strong>Experience: </strong></i>' .$array[0]['Experience'].' years <br>
+                                   </p>
+								                 </div>	
+							                </div>
+						               </div>
+					              </div>';
+    
+/*$ch = curl_init(); //initialize curl channel
+ *$url = "WHATEVER THE URL IS FOR API" . Name or whatever //create url string
+ *curl_setopt($ch, CURLOPT_URL, $url); //set the url
+ *curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //set the return options
+ *$output = curl_exec($ch); //execute the curl request
+ *curl_close($ch); //close the connection channel
+ *$response = json_decode($output) //decode the json object it returns, this is not regular json if you vardump you will see that curl returns an object (StdClass Object) 
+ */
+    }
+    if ($arrest_data === NULL) 
+      $this->html .= '<div class="panel-default" style="margin-top: 40px; width: 1150px;">
+                        <h3>This player has never been arrested! Amazing...</h3>
+                      </div>';
+    else {
+      $this->html .= '<div class="panel-default" style="margin-top: 40px; width: 1150px;">
+                        <div class="panel-header">
+                          <h3 style="margin-left: 10px;">Arrest Information</h3>
+                        </div>
+                        <ul class="list-group">';
+      foreach($arrest_data as $record) {
+        $this->html .= '<li class="list-group-item">
+                          <h4><span><i class="fa fa-thumbs-down"></i></span><i class="text-danger">&nbspOn ' . $record["Date"] . " " . $this->name . ' was arrested for ' . $record["Category"] . '</i></h4>' . 
+                          '<strong>Description: </strong>' . $record["Description"] . '</br>' .
+                          '<strong>Outcome: </strong>' . $record["Outcome"] .
+                       '</li>';
+      }
 
-					$curl = curl_init();
-					$url = 'https://api.newsriver.io/v2/search?query=text%3A%C22'.
-                                                                        $array[0]['FirstName'].
-                                                                        '%20'.
-                                                                        $array[0]['LastName'].
-                                                                        '%22%20AND%20text%3Anfl&limit=10';
-					echo($url);
-					curl_setopt($curl, CURLOPT_URL, $url);
-					curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-											'Authorization: sBBqsGXiYgF0Db5OV5tAw0wqH79z9TnUTVyUeDVG_EwMCvyLAbILcwAuIRd-9iR0'
-											));
-					$output = curl_exec($curl);
-					curl_close($curl);
+      $this->html .= '</ul></div>';
+    }
 
-					$news = json_decode($output, true);
-					var_dump($news);
-		}
-
-		return $this->html;
-	}
+    return $this->html;
+  }
 }

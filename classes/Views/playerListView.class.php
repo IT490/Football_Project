@@ -24,7 +24,7 @@ class playerListView extends View
 								<th>Team</th>
 								<th>College</th>
 								<th>Position</th>
-								<th>Status</th>
+								<th>Fantasy Position</th>
 							</tr>
 						</thead>
 						<tbody>	
@@ -41,7 +41,7 @@ class playerListView extends View
 					'</td><td>'.
 					$document["Position"].
 					'</td><td>'.
-					$document["CurrentStatus"]. 
+					$document["FantasyPosition"]. 
 					'</td></a></tr>';
 		}
 

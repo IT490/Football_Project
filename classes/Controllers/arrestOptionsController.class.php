@@ -1,9 +1,9 @@
 <?php
   
-  class draftOptionsController extends Controller {
+  class arrestOptionsController extends Controller {
 
     public function get() {
-      $view = new draftOptionsView;
+      $view = new arrestOptionsView;
       $this->html = $view->getHTML();
     }
 
