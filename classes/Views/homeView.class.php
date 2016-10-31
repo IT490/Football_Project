@@ -5,10 +5,10 @@
     public function getHTML() {
       //create the view
       $this->html = "<div class='page-header clearfix'>
-                       <h1 class='text-center'> Welcome to the Mock drafting tool</h1>
+                       <h1> Welcome to NFL Arrests lol...<small><i>The number 2 source for arrest data</i></small></h1>
                      </div>
                      <div class='jumbotron'>
-                       <h3> This should be a youtube video player or something</h3>
+                       <h3 style='margin-left: 20px;'> This should be a youtube video player or something</h3>
                        <div class='embed-responsive embed-responsive-16b9'>
                          <iframe class='embed-responsive-item' src='http://www.youtube.com/nfl'></iframe>
                        </div>
