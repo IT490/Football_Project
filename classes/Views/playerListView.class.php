@@ -9,7 +9,11 @@ class playerListView extends View
 		$client = new MongoDB\Client;
 		$nfl = $client->nfl;
 
+		$filter = array();
+		$options = ['sort' => ['Name' => 1]];
+
 		$collection = $client->nfl->Players;
+		$sorted = $collection->find($filter, $options);
 	
 		$this->html .= '<style type="text/css"> .table-row{cursor:pointer;}</style>';
 		$this->html .= '<div class="page-header" style="margin-top: 60px;">
@@ -24,13 +28,13 @@ class playerListView extends View
 								<th>Team</th>
 								<th>College</th>
 								<th>Position</th>
-								<th>Status</th>
+								<th>Fantasy Position</th>
 							</tr>
 						</thead>
 						<tbody>	
 				';
 	
-		foreach ($collection->find() as $document)
+		foreach ($collection->find($filter, $options) as $document)
 		{
 		                        $this->html .= '<tr class="table-row" data-href="index.php?controller=playerProfileController&player='.$document["Name"].'"><td>'.
 					$document["FirstName"]. ' ' . $document["LastName"].
@@ -41,7 +45,7 @@ class playerListView extends View
 					'</td><td>'.
 					$document["Position"].
 					'</td><td>'.
-					$document["CurrentStatus"]. 
+					$document["FantasyPosition"]. 
 					'</td></a></tr>';
 		}
 
