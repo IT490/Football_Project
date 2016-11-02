@@ -3,6 +3,12 @@
 This project is our IT490 (Systems Integration) Site. 
 It shows NFL Arrest data for every active/inactive player in the league.
 
+Jason worked on Configs, Shell scripts, RabbitMQ Servers/Scripts, Project Mgmt, Project Design, Database Mgmt/Design, Fantasy Data API Integration
+
+Branden worked on Player List, Player Profile, Newsriver API Integration, Player Model, Project Design, MongoDB Design/Implementation
+
+Yuval worked on MVC Design/Architecture, Login, Sign Up, Arrest Dashboard, Arrest API Integration, Homepage, User profile, Signed In Homepage
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
