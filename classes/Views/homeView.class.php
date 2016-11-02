@@ -11,13 +11,15 @@
                        <div class='row'>
                          <div class='col-md-12'>
                            <img class='img-circle' src='http://static1.businessinsider.com/image/51cae6e36bb3f7b31500000e-480/aaron-hernandez-arrested.jpg' alt='hernandez' width='350px' height='250px' style='margin-left: 20px; float: left; margin-right:20px;'>
-                           <p class='big-font style='clear:both; width:300px;'>
-                               The most embarrasing news and arrests</h4>
+                           <p class='big-font'>
+                               The most embarrasing news and arrests<span class='lead'>
                                all in one place for your viewing pleasure.
                                Sign up to gain access to arrest graphs,
                                news feeds, and the use of our player arrest
                                database that provides information on current
                                active players.
+                           </span></br>
+                              <a href='index.php?controller=signupController'><h3 class='text-info'>Sign up now to gain access!</h3></a>
                            </p>
                          </div>
                        </div>
@@ -26,11 +28,10 @@
                      <div class='row'>
                        <div class='col-sm-6 col-md-4'>
                          <div class='thumbnail'>
-                           <img src='#' alt='mock draft picture'>
+                           <img src='#' alt='arrest picture'>
                            <div class='caption'>
                              <h3> Arrests Dashboard </h3>
                              <p> Laugh at the stupidity of NFL players here.</p>
-                             <p><a href='index.php?controller=draftOptionController' class='btn btn-primary' role='button'>Arrests</a></p>
                            </div>
                          </div>
                        </div>
@@ -41,7 +42,6 @@
                            <div class='caption'>
                              <h3> NFL Players </h3>
                              <p> Browse our list of players. </p>
-                             <p><a href='index.php?controller=playerListController' class='btn btn-primary' role='button'>Players</a></p>
                            </div>
                          </div>
                        </div>       
@@ -51,7 +51,6 @@
                            <div class='caption'>
                              <h3> Start/Sit tool </h3>
                              <p> COMING SOON! </p>
-                             <p><a href='index.php?controller=startSitController' class='btn btn-primary' role='button'>Start/Sit</a></p>
                            </div>
                          </div>
                        </div>

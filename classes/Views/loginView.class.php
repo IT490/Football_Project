@@ -12,7 +12,7 @@
                           <label for='username' class='col-sm-2 control-label'>Username: </label>
                           <div class='col-sm-4 input-group'>
                             <span class='input-group-addon'><i class='fa fa-hand-spock-o'></i></span>
-                            <input type='email' class='form-control' id='user' name='user' placeholder='Enter your username'>
+                            <input type='text' class='form-control' id='user' name='user' placeholder='Enter your username'>
                           </div>
                         </div>
                         <div class='form-group'>

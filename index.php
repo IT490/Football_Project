@@ -15,7 +15,7 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Still need to add Angular.min.js files -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
     <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
