@@ -11,7 +11,10 @@ class playerListController extends Controller
       $this->html .= $view->getHTML();
     }
 
-    else { $this->html = "<h2>Your Token has either expired or you are a hacker!</h2>"; }
+    else { 
+      $view = new noTokenView;
+      $this->html .= $view->getHTML();  
+    }
 	}
 
 }
