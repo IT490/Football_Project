@@ -24,11 +24,12 @@
                          </div>
                        </div>
                      </div>
+                      
                      <div class='container' style='clear:both; margin-top:30px;'>
                      <div class='row'>
                        <div class='col-sm-6 col-md-4'>
                          <div class='thumbnail'>
-                           <img src='#' alt='arrest picture'>
+                           <img src='http://jocktalkla.com/wp-content/uploads/2014/09/NFL-Meme.jpg' alt='arrest picture' style='height:300px;'>
                            <div class='caption'>
                              <h3> Arrests Dashboard </h3>
                              <p> Laugh at the stupidity of NFL players here.</p>
@@ -38,7 +39,7 @@
                        
                        <div class='col-sm-6 col-md-4'>
                          <div class='thumbnail'>
-                           <img src='#' alt='player list picture'>
+                           <img src='http://www.gannett-cdn.com/-mm-/156bb441e3f10c1dd098d7367505844135fe2c73/c=0-0-3088-2322&r=x404&c=534x401/local/-/media/2016/01/27/DetroitFreePress/DetroitFreePress/635894976697472847-AP-Redskins-Falcons-Football.jpg' style='height:300px;' alt='player list picture'>
                            <div class='caption'>
                              <h3> NFL Players </h3>
                              <p> Browse our list of players. </p>
@@ -47,7 +48,7 @@
                        </div>       
                        <div class='col-sm-6 col-md-4'>
                          <div class='thumbnail'>
-                           <img src='#' alt='start / sit picture'>
+                           <img src='https://captaincomeback.files.wordpress.com/2013/06/downgoesrex.jpg' style='height:300px;' alt='start / sit picture'>
                            <div class='caption'>
                              <h3> Start/Sit tool </h3>
                              <p> COMING SOON! </p>
