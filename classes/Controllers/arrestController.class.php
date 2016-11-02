@@ -18,7 +18,7 @@
     }
 
     public function post() {
-
+      header('Location: index.php?controller=playerProfileController&player=' . $_POST['search'] );
     }
 
     public function put() {

@@ -40,7 +40,7 @@
                      </script>
                      <div class='panel-default' style='margin-top: 40px; width: 500px;'>  
                        <h4>Search by Player</h4>                                          
-                       <form class='form-inline'>                                         
+                       <form class='form-inline' method='post' action='index.php?controller=arrestController'>                                         
                          <div class='form-group'>                                         
                            <div class='col-sm-12 input-group'>                            
                              <span class='input-group-addon><i class='fa fa-search'></i></span>
