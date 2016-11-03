@@ -32,7 +32,13 @@
                         <div class='form-group'>
                           <label for='username' class='col-sm-2 control-label'>Username </label>
                           <div class='col-sm-4'>
-                            <input type='email' class='form-control' id='user' name='user' placeholder='Enter your username'>
+                            <input type='text' class='form-control' id='user' name='user' placeholder='Enter your username'>
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label for='email' class='col-sm-2 control-label'>Email </label>
+                          <div class='col-sm-4'>
+                            <input type='email' class='form-control' id='email' name='email' placeholder='Enter your email'>
                           </div>
                         </div>
                         <div class='form-group'>

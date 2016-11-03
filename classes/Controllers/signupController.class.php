@@ -13,9 +13,11 @@
 
       $acct = array();
       $acct['user'] = $_POST['user'];
+      $acct['email'] = $_POST['email'];
       $acct['pw'] = $_POST['pw'];
       $acct['firstName'] = $_POST['firstName'];
       $acct['lastName'] = $_POST['lastName'];
+      $acct['signup'] = $this->DateStamp();
 
       $client = new Thumper\RpcClient( $registry->getConnection() );
       $client->initClient();
@@ -44,9 +46,9 @@
                   window.location = 'index.php?controller=signedInController';
                   }, 5000);
               </script>
-              <div class='jumbotron'>
+              <div class='panel-default'>
                 <h3>Congratulations! Your account is set up.</h3>
-                <p>You can now enjoy the awesome power of Da Drafterizer.</br>
+                <p>You can now enjoy the awesome power of NFL Arrests lol...</br>
                    Destroy your friends, stomp your neighbors, steal money from</br>
                    old people, and take candy from babies. You are a boss!
                 </p>
