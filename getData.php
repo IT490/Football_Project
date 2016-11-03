@@ -16,6 +16,8 @@ $data_arr = json_decode($output, true);
 $data = array();
 array_push($data, array("Crime", "Number"));
 foreach($data_arr as $data_element){
+  if(intval($data_element["arrest_count"]) <= 7)
+    continue;
   $temp = array();
   $count = 0;
   foreach($data_element as $key=>$val) {
