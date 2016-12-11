@@ -38,6 +38,11 @@
                        }
 
                      </script>
+
+										<div class='page-header' style='margin-top: 60px;'>
+                        <h2 class>&nbsp<span><i class='fa fa-lg fa-archive'></i></span>&nbspNFL Arrests</h2>
+                       </div>
+
                      <div class='panel-default' style='margin-top: 40px; width: 500px;'>  
                        <h4>Search by Player</h4>                                          
                        <form class='form-inline' method='post' action='index.php?controller=arrestController'>                                         

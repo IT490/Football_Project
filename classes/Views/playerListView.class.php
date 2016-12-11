@@ -20,6 +20,22 @@ class playerListView extends View
 				<h2 class>&nbsp<span><i class="fa fa-lg fa-archive"></i></span>&nbspPlayer List</h2>
 				</div>';
 
+		$this->html .= "<div class='panel-default' style='margin-top: 40px; width: 500px;'>  
+		                         <h4>Search by Player</h4>                                          
+		                          <form class='form-inline' method='post' action='index.php?controller=arrestController'>                                             
+			                           <div class='form-group'>                                         
+			                              <div class='col-sm-12 input-group'>                            
+				                               <span class='input-group-addon><i class='fa fa-search'></i></span>
+				                                <input type='text' class='form-control' id='search' name='search' placeholder='Search by Player name'>
+					                             </div>                                                         
+					                            </div>                                                           
+						                           <div class='form-group'>                                         
+						                              <div class='col-sm-4'>                                         
+							                               <button type='submit' class='btn btn-success'>Search</button>
+							                              </div>                                                         
+								                           </div                                                            
+								                        </div> ";
+
 		$this->html .= '<br><div class="container">
 					<table class="table table-hover table-responsive">
 						<thead>

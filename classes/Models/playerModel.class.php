@@ -48,7 +48,11 @@ class playerModel
 		if ($result_count == 1)
 		{
 			// build player profile
-			$this->html .= '<div class="panel panel-default" style="margin-top: 60px; background-color: #E0E0E0; width: 1150px;">
+			$this->html .= '<div class="page-header" style="margin-top: 60px;">
+											<h2 class>&nbsp<span><i class="fa fa-lg fa-archive"></i></span>&nbspPlayer Profile</h2>
+											</div>';
+
+			$this->html .= '<div class="panel panel-default" style="background-color: #E0E0E0; width: 1150px;">
 					              <div class="row">
 						              <div class="col-sm-2">
 							              <div class="main-content">

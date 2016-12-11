@@ -29,12 +29,17 @@
           </ul>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li role="presentation">
-            <a href="index.php?controller=signupController"><span><i class="fa fa-optin-monster"></i></span>&nbspSign Up</a>
-          </li>
-          <li role="presentation">
-            <a href="index.php?controller=loginController"><span><i class="fa fa-sign-in"></i></span>&nbspLog In</a>
-          </li>
+					<li role="presentation">
+          <div class="dropdown" style="margin-top:10px;">
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Log In
+						<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="index.php?controller=signupController">Sign Up</a></li>
+						<li><a href="index.php?controller=loginController">Log In</a></li>
+						</ul>
+					</div>
+					</li>
           <li role="presentation">
             <a href="index.php?controller=arrestController"><span><i class="fa fa-cogs"></i></span>&nbspNFL Arrests</a>
           </li>
@@ -65,6 +70,17 @@
     </div>
     <div class="navbar navbar-default navbar-fixed-bottom">
       <div class="container">
+				<ul class="nav navbar-nav pull-left">
+					<li role="presentation">
+					  <a href='#'>Fantasy Football Nerds&nbsp</a>
+					</li>
+					<li role="presentation">
+					  <a href='#'>NFL Arrests&nbsp</a>
+					</li>
+					<li>
+					  <a href='#'>NewsRiver&nbsp</a>
+				  </li>
+				</ul>
         <p class="navbar-text pull-right">
           A Jb-Y Production &copy <?php echo date("Y"); ?> 
         </p>
