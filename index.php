@@ -31,9 +31,9 @@
         <ul class="nav navbar-nav navbar-right">
 					<li role="presentation">
           <div class="dropdown" style="margin-top:10px;">
-						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Log In
+						<a class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Log In
 						<span class="caret"></span>
-						</button>
+						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 						<li><a href="index.php?controller=signupController">Sign Up</a></li>
 						<li><a href="index.php?controller=loginController">Log In</a></li>
