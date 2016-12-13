@@ -49,6 +49,9 @@
           <li role="presentation">
             <a href="index.php?controller=rankingController"><span><i class="fa fa-free-code-camp"></i></span>&nbspRankings</a>
           </li>
+          <li role="presentation">
+            <a href="index.php?controller=startSitController"><span><i class="fa fa-bed"></i></span>&nbspStart/Sit</a>
+          </li>
         </ul>
       </div>
     </nav>
