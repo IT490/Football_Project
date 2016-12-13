@@ -1,8 +1,8 @@
 .main-div { 
   width: 100%;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left : 20px;
-  margin-right: 20px;
+  margin-right: 60px;
 }
 
 .draftContainer {
@@ -39,4 +39,18 @@ body {
   width: 220px;
   height: 700px;
   border-left: solid #0F0F0F
+}
+
+.big-font {
+  font-size: 32px;
+}
+
+.ccl {
+  padding-top: 175px;
+  padding-right: 45px;
+}
+
+.ccr {
+  padding-top: 175px;
+  padding-left: 45px;
 }
