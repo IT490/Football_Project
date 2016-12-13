@@ -51,7 +51,8 @@
                            <div class='col-sm-4'>                                         
                              <button type='submit' class='btn btn-success'>Search</button>
                            </div>                                                         
-                         </div                                                            
+                         </div>
+                       </form>                                                            
                      </div>               
                      <table class='columns' style='margin: auto; margin-top: 30px;'>
                        <tr>
