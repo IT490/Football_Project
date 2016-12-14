@@ -78,9 +78,9 @@ This is currently version 1.0
 
 ## Authors
 
-* **Branden Robinson** - *Player List and other stuff* - [Branden Github](https://github.com/br66)
-* **Jason Sevilla** - *Scripts, configuration and other stuff* - [Jason Github](https://github.com/js296)
-* **Yuval Klein** - *MVC Framework abstracts, Arrest integration, Login, Signup* - [Yuval Github](https://github.com/yk92)
+* **Branden Robinson** - *Player List, Start/Sit, RabbitMQ Integration, Newsriver Integration, and Site Re-Design* - [Branden Github](https://github.com/br66)
+* **Jason Sevilla** - *Cron scripts, Wireframing* - [Jason Github](https://github.com/js296)
+* **Yuval Klein** - *MVC Framework abstracts, Arrest integration, Login, Signup, Weekly Rankings, RabbitMQ Integration* - [Yuval Github](https://github.com/yk92)
 
 ## License
 
@@ -91,7 +91,8 @@ This project is licensed under the MIT License
 * MunchiesNJ (god those burgers are good)
 * Annabella's Kitchen patty melt
 * Honey Mustard
-* Mr. DJ Kehoe for making us do this
-* Inspiration - None
+* Mr. DJ Kehoe for making us do the stupid carousel
+* Inspiration - Sometimes
 * etc - yes, lots of etc. That guy was clutch
+* Bootstrap 
 
