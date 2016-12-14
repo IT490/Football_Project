@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . '/../../vendor/autoload.php';
   
   class startSitController extends Controller {
 
@@ -8,51 +10,73 @@
       $this->html .= $view->getHTML();  
     }
 
-    public function post() {
+    public function post() 
+		{
 
-      /*require the Thumper config file
-      require __DIR__ . '/../../config.php';
+      $view = new startSitView;
+      $this->html .= $view->getHTML();  
 
-      //instantiate a new producer for logging system and initialize it to topic exchange
-      $producer = new Thumper\Producer($registry->getConnection());
-      $producer->setExchangeOptions( array( 'name'=>'logs-exchange', 'type'=>'topic' ) );
+			$player1 = $_POST['player1'];
+			$player2 = $_POST['player2'];
+			
+			//call mongo
+			$client = new MongoDB\Client;
+			$nfl = $client->nfl;
 
-      //grab user's credentials from $_POST array (form data)
-      $creds = array();
-      $creds['user'] = $_POST['user'];
-      $creds['pw'] = $_POST['pw'];
-      
-      //instantiate a Thumper client to pass log in data to verification server
-      $client = new Thumper\RpcClient($registry->getConnection());
-      $client->initClient();
+			//setup filters for search
+			$player1Query = array('Name' => $player1);
+			$player2Query = array('Name' => $player2);
 
-      //send login request to rabbitmq exchange
-      $client->addRequest(serialize($creds), 'doLogin', 'doLogin');
-      $replies = $client->getReplies();
-      $data = unserialize($replies["doLogin"]);
+			//go to collection of Players and their IDs
+			$collection = $client->nfl->playerIDs;
 
-      //handle response from verification server
-      if ( $data["success"] == "Yes" ) {
-        //send success message to logging system
-        $logMsg = $this->DateStamp() . " : " . $_POST['user'] . " logged in and was given token: " . $data['token'];
-        $producer->publish( $logMsg , 'app.info' );
+			// search for players we need
+			$player1Info = $collection->find($player1Query);
+			$player2Info = $collection->find($player2Query);
 
-        //store user credential and token in session
-        session_start();
-        $_SESSION['user'] = $_POST['user'];
-        $_SESSION['token'] = $data["token"];
+			$p1array = $player1Info->toArray();
+			$p2array = $player2Info->toArray();
 
-        //redirect to signedInView
-        header('Location: index.php?controller=signedInController');
-      }
-      else {
-        //if verification failed send error message to logger
-        $logMsg = $this->DateStamp() . " :[ERROR] - " . $_POST['user'] . " tried to log in and failed!";
-        $producer->publish( $logMsg , 'app.error' );
+			//save the player ID
+			$p1id = $p1array[0]["PlayerID"];
+			$p2id = $p2array[0]['PlayerID'];
 
-        //redirect to sign up page (need to change this maybe to error page or something)
-        header('Location: index.php?controller=signupController');
-      }*/
+			//API Call to get fantasy score (must use IDs to make API call work)
+			$ch = curl_init();
+				$url1 = 'https://api.fantasydata.net/v3/nfl/projections/JSON/PlayerGameProjectionStatsByPlayerID/2016REG/15/'. $p1id;
+				curl_setopt($ch, CURLOPT_URL, $url1);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Ocp-Apim-Subscription-Key: de372be4105d4def9afc7921aefc6804'));
+				$p1stats = curl_exec($ch);
+			curl_close();
+				
+			$ch2 = curl_init();
+				$url2 = 'https://api.fantasydata.net/v3/nfl/projections/JSON/PlayerGameProjectionStatsByPlayerID/2016REG/15/'. $p2id;
+				curl_setopt($ch2, CURLOPT_URL, $url2);
+				curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch2, CURLOPT_HTTPHEADER, array('Ocp-Apim-Subscription-Key: de372be4105d4def9afc7921aefc6804'));
+				$p2stats = curl_exec($ch2);
+			curl_close();
+
+			// player statistics decoded to json
+			$p1data = json_decode($p1stats, true);
+			$p2data = json_decode($p2stats, true);
+
+			$p1score = $p1data['FantasyPointsDraftKings'];
+			$p2score = $p2data['FantasyPointsDraftKings'];
+
+			if (intval($p1score) > intval($p2score))
+			{
+				$this->html .= "<div class='jumbotron' style='margin-top:40px;'>".
+													"<h2>Winner: " . $p1data['Name']."<h2>
+												</div>";
+			}
+			else {
+
+				$this->html .= "<div class='jumbotron' style='margin-top:40px;'>
+									<h2>Winner: ".$p2data['Name']."<h2>
+												</div>";
+			}
     }
 
     public function put() {
@@ -64,4 +88,3 @@
     }
 
   }
-
