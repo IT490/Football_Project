@@ -3,11 +3,20 @@
   class rankingController extends Controller {
 
     public function get() {
-      
-      $view = new rankingView;
-      $this->html .= $view->getHTML();
-      $model = new rankingModel;
-      $this->html .= $model->getRanks();  
+
+      session_start();
+
+      if ($_SESSION['token']) {
+        $view = new rankingView;
+        $this->html .= $view->getHTML();
+        $model = new rankingModel;
+        $this->html .= $model->getRanks();
+      }
+
+      else {
+        $view = new noTokenView;
+        $this->html = $view->getHTML();
+      }  
     }
 
     public function post() {
