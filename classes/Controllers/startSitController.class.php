@@ -70,21 +70,18 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 			// player statistics decoded to json
 			$p1data = json_decode($p1stats, true);
 			$p2data = json_decode($p2stats, true);
-
 			$p1score = $p1data['FantasyPointsDraftKings'];
 			$p2score = $p2data['FantasyPointsDraftKings'];
 
 			if (intval($p1score) > intval($p2score))
-			{
-				$this->html .= "<div class='jumbotron' style='margin-top:40px;'>".
-													"<h2>Winner: " . $p1data['Name']."<h2>
-												</div>";
+      { 
+        $model = new startSitModel($p1data['Name']);
+        $this->html .= $model->getHTML();
 			}
 			else {
 
-				$this->html .= "<div class='jumbotron' style='margin-top:40px;'>
-									<h2>Winner: ".$p2data['Name']."<h2>
-												</div>";
+        $model = new startSitModel($p2data['Name']);
+        $this->html .= $model->getHTML();
 			}
     }
 
