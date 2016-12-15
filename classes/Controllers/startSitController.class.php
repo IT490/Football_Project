@@ -75,6 +75,9 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 			if (intval($p1score) > intval($p2score))
       { 
+        $this->html .= "<div>
+                          <h2>The Winner is: </h2>
+                        </div>";
         $model = new startSitModel($p1data['Name']);
         $this->html .= $model->getHTML();
 			}
